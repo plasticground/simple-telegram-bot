@@ -32,6 +32,6 @@ return [
     |
     */
 
-    'log_path' => env('TELEGRAM_BOT_DEBUG_ERRORS_PATH', storage_path('/logs')),
+    'log_channel' => config('logging.default', ['path' => storage_path('logs/telegram-bot.log')]),
 
 ];

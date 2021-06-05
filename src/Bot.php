@@ -53,12 +53,15 @@ class Bot extends Model
 
         try {
             $response = Http::post(
-                config('simple-telegram-bot.base_uri') . $this->additionalUri . $command->name,
+                config('simple-telegram-bot.base_uri', 'https://api.telegram.org') . $this->additionalUri . $command->name,
                 $params
             );
         } catch (\Throwable $e) {
             $response = $e;
-            Log::error('Telegram bot error', ['error' => $e->getMessage()]);
+            if (config('simple-telegram-bot.log_level', 1) > 0) {
+                Log::channel(config('simple-telegram-bot.log_channel', ['path' => storage_path('logs/telegram-bot.log')]))
+                    ->error('Telegram bot error', ['error' => $e->getMessage()]);
+            }
         }
 
         return $response;
