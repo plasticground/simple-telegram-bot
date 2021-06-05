@@ -1,0 +1,30 @@
+{
+    "name": "plasticground/simple-telegram-bot",
+    "description": "The simple Telegram Bot",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Plasticground",
+            "email": "plasticground@yandex.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Plasticground\\SimpleTelegramBot\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^7.0 || ^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Plasticground\\SimpleTelegramBot\\SimpleTelegramBotServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
